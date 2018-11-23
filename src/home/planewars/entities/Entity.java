@@ -16,6 +16,7 @@ public class Entity {
     protected Image image;
     protected String type;
     protected int speed;
+    private Utils utils;
 
     public Entity(int x, int y, String type, int level) {
         this.x = x;
@@ -23,10 +24,11 @@ public class Entity {
         this.level = level;
         this.type = type;
         visible = true;
+        utils = new Utils();
     }
 
     protected void loadImage(String imageName) {
-        image = Utils.loadImage(imageName);
+        image = utils.loadImage(imageName);
     }
     
     protected void getImageDimensions() {
@@ -80,7 +82,7 @@ public class Entity {
 	}
 	
 	public void setImage(String imageName) {
-		image = Utils.loadImage(imageName);
+		image = utils.loadImage(imageName);
 		getImageDimensions();
 	}
 

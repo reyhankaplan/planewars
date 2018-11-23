@@ -1,14 +1,18 @@
 package home.planewars.utils;
 
 import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 
 public class Utils {
 	
 	// resimleri yukler
-    public static Image loadImage(String imageName) {
+    public Image loadImage(String imageName) {
 
-        ImageIcon ii = new ImageIcon("res/img/" + imageName + ".png");
-        return ii.getImage();
+        return new ImageIcon(getResource( "/img/" + imageName + ".png")).getImage();
+    }
+    public Image getResource(String path) {
+    	return  Toolkit.getDefaultToolkit().getImage(getClass().getResource(path));
     }
 }
