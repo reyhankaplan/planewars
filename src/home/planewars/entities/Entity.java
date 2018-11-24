@@ -6,8 +6,8 @@ import java.awt.Rectangle;
 import home.planewars.utils.Utils;
 
 public class Entity {
-	
-	protected int level;
+    
+    protected int level;
     protected int x;
     protected int y;
     protected int width;
@@ -58,33 +58,33 @@ public class Entity {
     }
     
     public int getLevel() {
-    	return level;
+        return level;
     }
     
     public void setLevel(int level) {
-    	this.level = level;
+        this.level = level;
     }
     
     public void setType(String type) {
-    	this.type = type;
+        this.type = type;
     }
     
     public String getType() {
-    	return type;
+        return type;
     }
 
     public int getSpeed() {
-		return speed;
-	}
+        return speed;
+    }
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	
-	public void setImage(String imageName) {
-		image = utils.loadImage(imageName);
-		getImageDimensions();
-	}
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+    
+    public void setImage(String imageName) {
+        image = utils.loadImage(imageName);
+        getImageDimensions();
+    }
 
     public boolean isVisible() {
         return visible;

@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 public class Player extends Plane {
 
-	public Player(int x, int y, int level) {
-		super(x, y, level, Plane.PLAYER);
-	}
-	
+    public Player(int x, int y, int level) {
+        super(x, y, level, Plane.PLAYER);
+    }
+    
     public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();
@@ -32,7 +32,7 @@ public class Player extends Plane {
             dy = 1;
         }
     }
-	
+    
     public void keyReleased(KeyEvent e) {
 
         int key = e.getKeyCode();

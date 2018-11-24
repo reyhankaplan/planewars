@@ -3,17 +3,17 @@ package home.planewars.entities.planes;
 import java.util.ArrayList;
 import java.util.List;
 
-import home.planewars.Launcher;
+import home.planewars.Config;
 import home.planewars.entities.Entity;
 import home.planewars.entities.weapon.Missile;
 
 public class Plane extends Entity{
-	
-	public final static String PLAYER = "player";
-	public final static String ENEMY = "enemy";
-	public final static int DEFAULT_HEALTH = 10;
-	public final static int DEFAULT_MISSILE_COUNT = 3;
-	
+    
+    public final static String PLAYER = "player";
+    public final static String ENEMY = "enemy";
+    public final static int DEFAULT_HEALTH = 10;
+    public final static int DEFAULT_MISSILE_COUNT = 3;
+    
     protected int dx;
     protected int dy;
     protected List<Missile> missiles;
@@ -34,9 +34,9 @@ public class Plane extends Entity{
     }
 
     private void initPlane() {
-    	
-    	health = DEFAULT_HEALTH;
-    	maxMissileCount = DEFAULT_MISSILE_COUNT;
+        
+        health = DEFAULT_HEALTH;
+        maxMissileCount = DEFAULT_MISSILE_COUNT;
         missiles = new ArrayList<>();
 
         System.out.println("loadImage " + (name+level) );
@@ -45,7 +45,7 @@ public class Plane extends Entity{
     }
     
     private String getImageName() {
-    	return name + level;
+        return name + level;
     }
     
     public void move() {
@@ -53,31 +53,31 @@ public class Plane extends Entity{
     }
     
     public boolean move(int dx, int dy) {
-    	y += dy;
-    	x += dx;
+        y += dy;
+        x += dx;
 
-    	dy = 0;
-    	dx = 0;
-    	
-    	if (y > Launcher.HEIGHT - height) {
-            y = Launcher.HEIGHT - height;
+        dy = 0;
+        dx = 0;
+        
+        if (y > Config.BOARD_HEIGHT - height) {
+            y = Config.BOARD_HEIGHT - height;
             return true;
         }
-    	else if(y < 0) {
-    		y = 0;
-    		return true;
-    	}
-    	
-    	if (x < 0) {
-    		x = 0;
-    		return true;
-    	}
-    	else if(x > Launcher.WIDTH - width) {
-    		x = Launcher.WIDTH - width;
-    		return true;
-    	}
-    	
-    	return false;
+        else if(y < 0) {
+            y = 0;
+            return true;
+        }
+        
+        if (x < 0) {
+            x = 0;
+            return true;
+        }
+        else if(x > Config.BOARD_WIDTH - width) {
+            x = Config.BOARD_WIDTH - width;
+            return true;
+        }
+        
+        return false;
 
     }
     
@@ -90,23 +90,23 @@ public class Plane extends Entity{
     }
     
     public void setHealth(int health) {
-    	this.health = health;
+        this.health = health;
     }
     
     public int getHealth() {
-    	return health;
+        return health;
     }
     
     public void increaseHealth(int inc) {
-    	this.health += inc;
+        this.health += inc;
     }
 
-	public int getMaxMissileCount() {
-		return maxMissileCount;
-	}
+    public int getMaxMissileCount() {
+        return maxMissileCount;
+    }
 
-	public void setMaxMissileCount(int maxMissileCount) {
-		this.maxMissileCount = maxMissileCount;
-	}
+    public void setMaxMissileCount(int maxMissileCount) {
+        this.maxMissileCount = maxMissileCount;
+    }
     
 }

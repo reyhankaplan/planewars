@@ -9,11 +9,7 @@ import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 public class Launcher extends JFrame {
-	
-
-	public final static int WIDTH = 400;
-	public final static int HEIGHT = 300;
-			
+            
     public Launcher() {
         
         initUI();
@@ -21,13 +17,13 @@ public class Launcher extends JFrame {
     
     private void initUI() {
         
-    	Board board = new Board();
+        Board board = new Board();
         add(board);
         
-        setSize(WIDTH, HEIGHT);
+        setSize(Config.BOARD_WIDTH, Config.BOARD_HEIGHT);
         setResizable(false);
         
-        setTitle("Plane Wars!");
+        setTitle(Config.APP_TITLE);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -36,7 +32,7 @@ public class Launcher extends JFrame {
             @Override
             public void windowClosing(WindowEvent windowEvent)
             {
-            	Timer timer = board.getTimer();
+                Timer timer = board.getTimer();
                 timer.stop();
             }
         });
